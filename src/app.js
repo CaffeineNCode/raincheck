@@ -3,7 +3,8 @@ const express = require('express');
 const hbs = require('hbs');
 const weatherapp = require('./utils/utils');
 const request = require('request');
-
+//For Heroku
+const port = process.env.PORT || 3000;
 const app = express();
 const extdir = path.join(__dirname,'../public');
 const partialpath = path.join(__dirname,'../partials');
@@ -56,7 +57,11 @@ app.get('*', (req,res) => {
         message: 'Page not found'
     });
 })
-
+/*
 app.listen(3000, () => {
     console.log("Server has started");
+})
+*/
+app.listen(port, () => {
+    console.log("Server is up on port: "+port);
 })

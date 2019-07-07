@@ -6,7 +6,7 @@ Wform.addEventListener('submit', (e) => {
    const place = search.value;
    document.getElementById('location').innerHTML = "Loading....";
    
-    fetch('http://localhost:3000/weather?search='+place).then((response)=> {
+    fetch('/weather?search='+place).then((response)=> {
         response.json().then((data) => {
             if(data.error)
             document.getElementById('location').innerHTML = data.error;
